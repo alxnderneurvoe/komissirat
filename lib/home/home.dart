@@ -67,6 +67,16 @@ class _HomePageState extends State<HomePage> {
           const FiturHome(),
           const ListChat(),
         ])),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: CircleAvatar(
+          backgroundColor: Colors.grey.shade200,
+          radius: 30,
+          child: GestureDetector(
+              onTap: () {
+                _pickImage();
+              },
+              child: const Icon(Icons.add, size: 50, color: Colors.black)),
+        ),
         bottomNavigationBar: BottomNavBar(
           currentIndex: _currentIndex,
           onTap: itemTapped,
@@ -101,15 +111,12 @@ class _HomePageState extends State<HomePage> {
         );
         break;
       case 2:
-        _pickImage;
-      break;
-      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ChatPage()),
         );
         break;
-      case 4:
+      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ProfilPage()),

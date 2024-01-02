@@ -70,7 +70,7 @@ class ChatListTiga extends StatelessWidget {
                           const Row(
                             children: [
                               Icon(Icons.check, size: 15),
-                              Text('Aku mau otw ak'),
+                              Text('maaf ya kalo aku sok asik'),
                             ],
                           )
                         ]))

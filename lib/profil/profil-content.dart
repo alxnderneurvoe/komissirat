@@ -11,7 +11,7 @@ class ContentProfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-        height: 365,
+        height: 500,
         width: double.infinity,
         child: SingleChildScrollView(
             scrollDirection: Axis.vertical,

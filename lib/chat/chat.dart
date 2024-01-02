@@ -2,6 +2,7 @@
 
 import 'package:file_picker/file_picker.dart';
 
+import '../home/home.dart';
 import '../profil/profil.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _ChatPageState extends State<ChatPage> {
   Color maleColor = Colors.grey;
   Color femaleColor = Colors.grey;
 
-  int _currentIndex = 3;
+  int _currentIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +89,16 @@ class _ChatPageState extends State<ChatPage> {
           const ChatListDua(),
           const ChatListTiga()
         ])),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: CircleAvatar(
+          backgroundColor: Colors.grey.shade200,
+          radius: 30,
+          child: GestureDetector(
+              onTap: () {
+                _pickImage();
+              },
+              child: const Icon(Icons.add, size: 50, color: Colors.black)),
+        ),
         bottomNavigationBar: BottomNavBar(
           currentIndex: _currentIndex,
           onTap: itemTapped,
@@ -113,7 +124,7 @@ class _ChatPageState extends State<ChatPage> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const ChatPage()),
+          MaterialPageRoute(builder: (context) => const HomePage()),
         );
       case 1:
         Navigator.push(
@@ -122,15 +133,12 @@ class _ChatPageState extends State<ChatPage> {
         );
         break;
       case 2:
-        _pickImage;
-        break;
-      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ChatPage()),
         );
         break;
-      case 4:
+      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ProfilPage()),

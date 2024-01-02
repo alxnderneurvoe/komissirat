@@ -16,7 +16,7 @@ class ProfilPage extends StatefulWidget {
 }
 
 class _ProfilPageState extends State<ProfilPage> {
-  int _currentIndex = 4;
+  int _currentIndex = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,16 @@ class _ProfilPageState extends State<ProfilPage> {
           ProfilBio(),
           ContentProfil(),
         ]),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: CircleAvatar(
+          backgroundColor: Colors.grey.shade200,
+          radius: 30,
+          child: GestureDetector(
+              onTap: () {
+                _pickImage();
+              },
+              child: const Icon(Icons.add, size: 50, color: Colors.black)),
+        ),
         bottomNavigationBar: BottomNavBar(
           currentIndex: _currentIndex,
           onTap: itemTapped,
@@ -49,15 +59,12 @@ class _ProfilPageState extends State<ProfilPage> {
         );
         break;
       case 2:
-        _pickImage;
-        break;
-      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ChatPage()),
         );
         break;
-      case 4:
+      case 3:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ProfilPage()),

@@ -25,7 +25,7 @@ class BottomNavBar extends StatelessWidget {
       items: [
         _buildNavItem(Icons.home_filled, 0),
         _buildNavItem(Icons.explore, 1),
-        _buildNavItem(CupertinoIcons.add, 2),
+        // _buildNavItem(CupertinoIcons.add, 2),
         _buildNavItem(CupertinoIcons.bubble_right_fill, 3),
         _buildNavItem(CupertinoIcons.person, 4),
       ],
