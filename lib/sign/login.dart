@@ -1,10 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../nav.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
+
+  String validEmail = 'shiratdana@gmail.com';
+  String validPass = '12345678';
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +40,15 @@ class LoginPage extends StatelessWidget {
                         Container(
                             padding: const EdgeInsets.only(top: 8),
                             child: const Column(children: [
-                              Text(
-                                'Jomatch',
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: -0.5,
-                                    height: 0.9),
-                              ),
+                              Text('Jomatch',
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: -0.5,
+                                      height: 0.9)),
                               Text('Make new partner',
                                   style: TextStyle(
-                                    fontSize: 18,
-                                    letterSpacing: -0.5,
-                                  ))
+                                      fontSize: 18, letterSpacing: -0.5))
                             ]))
                       ])),
               Container(height: 20),
@@ -63,16 +72,16 @@ class LoginPage extends StatelessWidget {
                                 child: Padding(
                                     padding: const EdgeInsets.only(left: 20),
                                     child: TextFormField(
+                                        controller: _emailController,
                                         cursorColor: Colors.white,
                                         style: const TextStyle(
                                             color: Colors.white),
                                         decoration: const InputDecoration(
-                                          focusColor: Colors.white,
-                                          border: InputBorder.none,
-                                          hintText: 'Email',
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                        ))))),
+                                            focusColor: Colors.white,
+                                            border: InputBorder.none,
+                                            hintText: 'Email',
+                                            hintStyle: TextStyle(
+                                                color: Colors.white)))))),
                         // ISI PASSWORD // ISI PASSWORD // ISI PASSWORD // ISI PASSWORD // ISI PASSWORD
                         Container(
                             alignment: Alignment.center,
@@ -86,17 +95,17 @@ class LoginPage extends StatelessWidget {
                                 child: Padding(
                                     padding: const EdgeInsets.only(left: 20),
                                     child: TextFormField(
+                                        controller: _passController,
                                         cursorColor: Colors.white,
                                         obscureText: true,
                                         style: const TextStyle(
                                             color: Colors.white),
                                         decoration: const InputDecoration(
-                                          focusColor: Colors.white,
-                                          border: InputBorder.none,
-                                          hintText: 'Password',
-                                          hintStyle:
-                                              TextStyle(color: Colors.white),
-                                        ))))),
+                                            focusColor: Colors.white,
+                                            border: InputBorder.none,
+                                            hintText: 'Password',
+                                            hintStyle: TextStyle(
+                                                color: Colors.white)))))),
                         // BUTTON SIGN FACEBOOK // BUTTON SIGN FACEBOOK // BUTTON SIGN FACEBOOK
                         Container(
                             alignment: Alignment.topRight,
@@ -105,10 +114,8 @@ class LoginPage extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: const Text(
-                              'Forget Password ?',
-                              style: TextStyle(fontSize: 10),
-                            )),
+                            child: const Text('Forget Password ?',
+                                style: TextStyle(fontSize: 10))),
                         // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE
                         Container(
                             alignment: Alignment.center,
@@ -119,14 +126,13 @@ class LoginPage extends StatelessWidget {
                                 color: Colors.blue),
                             child: GestureDetector(
                                 onTap: () {
-                                  navHomePage(context);
+                                  _login();
                                 },
                                 child: const Text('Sign In',
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 17,
-                                    ))))
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17))))
                       ])),
               Container(
                   width: double.infinity,
@@ -146,9 +152,8 @@ class LoginPage extends StatelessWidget {
                                   },
                                 text: 'Sign Up',
                                 style: const TextStyle(
-                                  color: Color.fromARGB(255, 0, 137, 249),
-                                  decoration: TextDecoration.underline,
-                                ))
+                                    color: Color.fromARGB(255, 0, 137, 249),
+                                    decoration: TextDecoration.underline))
                           ]))),
               Container(
                   width: double.infinity,
@@ -165,5 +170,43 @@ class LoginPage extends StatelessWidget {
                               navPilihPage(context);
                             })))
             ])));
+  }
+
+  void _login() {
+    if (validEmail == _emailController.text &&
+        validPass == _passController.text) {
+      navHomePage(context);
+      showSuccessDialog(context);
+    } else {
+      showErrorDialog(context);
+    }
+  }
+
+  void showSuccessDialog(BuildContext context) {
+    Alert(
+        context: context,
+        title: "Login berhasil",
+        buttons: [],
+        content: SizedBox(
+            height: 50, width: 50, child: Lottie.asset('assets/success.json')),
+        closeFunction: () => Navigator.pop(context)).show();
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pop(context);
+    });
+  }
+
+  void showErrorDialog(BuildContext context) {
+    Alert(
+        context: context,
+        title: "Login gagal",
+        buttons: [],
+        content: SizedBox(
+            height: 50,
+            width: 50,
+            child: Lottie.asset('assets/error.json', fit: BoxFit.fitHeight)),
+        closeFunction: () => Navigator.pop(context)).show();
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pop(context);
+    });
   }
 }

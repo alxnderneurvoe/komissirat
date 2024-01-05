@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:apk_sirat/nav.dart';
 import 'package:flutter/material.dart';
 
 class ProfilBio extends StatelessWidget {
@@ -23,11 +24,16 @@ class ProfilBio extends StatelessWidget {
                 Positioned(
                     top: 40,
                     right: 15,
-                    child: CircleAvatar(
-                        radius: 17,
-                        backgroundColor: Colors.grey.shade700,
-                        child: const Icon(Icons.settings,
-                            size: 30, color: Colors.white))),
+                    child: GestureDetector(
+                      onTap: () {
+                        navLoginPage(context);
+                      },
+                      child: CircleAvatar(
+                          radius: 17,
+                          backgroundColor: Colors.grey.shade700,
+                          child: const Icon(Icons.settings,
+                              size: 30, color: Colors.white)),
+                    )),
                 Positioned(
                     bottom: 0,
                     left: 15,

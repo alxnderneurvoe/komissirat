@@ -43,7 +43,7 @@ class PilihanPage extends StatelessWidget {
       Container(height: 20),
       // BUTTON SIGN // BUTTON SIGN // BUTTON SIGN // BUTTON SIGN // BUTTON SIGN // BUTTON SIGN
       SizedBox(
-          height: 280,
+          height: 200,
           width: double.infinity,
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,63 +86,63 @@ class PilihanPage extends StatelessWidget {
                               fontSize: 17,
                             )))),
                 // BUTTON SIGN FACEBOOK // BUTTON SIGN FACEBOOK // BUTTON SIGN FACEBOOK
-                Container(
-                    alignment: Alignment.center,
-                    height: 50,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.blue),
-                    child: GestureDetector(
-                        onTap: () {},
-                        child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.facebook,
-                                    size: 40,
-                                    color: Colors.white,
-                                  ),
-                                  Text('Sign Up With Facebook',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 17,
-                                      ))
-                                ])))),
-                // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE
-                Container(
-                    alignment: Alignment.center,
-                    height: 50,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.black),
-                    child: GestureDetector(
-                        onTap: () {},
-                        child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.apple,
-                                    size: 45,
-                                    color: Colors.white,
-                                  ),
-                                  Text('Sign Up With Facebook',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 17,
-                                      ))
-                                ]))))
+                // Container(
+                //     alignment: Alignment.center,
+                //     height: 50,
+                //     width: 300,
+                //     decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(25),
+                //         color: Colors.blue),
+                //     child: GestureDetector(
+                //         onTap: () {},
+                //         child: const Padding(
+                //             padding: EdgeInsets.symmetric(horizontal: 20),
+                //             child: Row(
+                //                 mainAxisAlignment:
+                //                     MainAxisAlignment.spaceEvenly,
+                //                 children: [
+                //                   Icon(
+                //                     Icons.facebook,
+                //                     size: 40,
+                //                     color: Colors.white,
+                //                   ),
+                //                   Text('Sign Up With Facebook',
+                //                       style: TextStyle(
+                //                         color: Colors.white,
+                //                         fontWeight: FontWeight.w600,
+                //                         fontSize: 17,
+                //                       ))
+                //                 ])))),
+                // // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE // BUTTON SIGN APPLE
+                // Container(
+                //     alignment: Alignment.center,
+                //     height: 50,
+                //     width: 300,
+                //     decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(25),
+                //         color: Colors.black),
+                //     child: GestureDetector(
+                //         onTap: () {},
+                //         child: const Padding(
+                //             padding: EdgeInsets.symmetric(horizontal: 20),
+                //             child: Row(
+                //                 mainAxisAlignment:
+                //                     MainAxisAlignment.spaceEvenly,
+                //                 children: [
+                //                   Icon(
+                //                     Icons.apple,
+                //                     size: 45,
+                //                     color: Colors.white,
+                //                   ),
+                //                   Text('Sign Up With Facebook',
+                //                       style: TextStyle(
+                //                         color: Colors.white,
+                //                         fontWeight: FontWeight.w600,
+                //                         fontSize: 17,
+                //                       ))
+                //                 ]))))
               ])),
-      const SizedBox(height: 15),
+      const SizedBox(height: 40),
       SizedBox(
           width: 100,
           child: Stack(children: [
